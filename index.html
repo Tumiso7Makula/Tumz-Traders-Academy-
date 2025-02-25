@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Tumz Traders Academy</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+    }
+    header {
+      background-color: #007BFF;
+      color: white;
+      padding: 20px;
+      text-align: center;
+      position: relative;
+    }
+    .facebook-link {
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      color: white;
+      text-decoration: none;
+      font-size: 16px;
+    }
+    .facebook-link:hover {
+      text-decoration: underline;
+    }
+    .container {
+      max-width: 800px;
+      margin: 20px auto;
+      padding: 20px;
+      background-color: white;
+      border-radius: 8px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+    textarea {
+      width: 100%;
+      padding: 10px;
+      margin-bottom: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    button {
+      padding: 10px 20px;
+      background-color: #007BFF;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+    }
+    button:hover {
+      background-color: #0056b3;
+    }
+    .chatbot {
+      margin-top: 20px;
+      border-top: 1px solid #ccc;
+      padding-top: 20px;
+    }
+    .chatbot input {
+      width: calc(100% - 90px);
+      padding: 10px;
+      border-radius: 5px;
+      border: 1px solid #ccc;
+    }
+    .chatbot button {
+      width: 80px;
+    }
+    .whatsapp-link {
+      display: block;
+      margin-top: 20px;
+      text-align: center;
+      color: #007BFF;
+      text-decoration: none;
+    }
+    .whatsapp-link:hover {
+      text-decoration: underline;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>Welcome to Tumz Traders Academy</h1>
+    <p>Learn, Trade, Succeed!</p>
+    <a href="YOUR_FACEBOOK_PAGE_URL" class="facebook-link" target="_blank">Follow us on Facebook</a>
+  </header>
+  <div class="container">
+    <h2>Advertise Your Services</h2>
+    <textarea id="advertise" rows="5" placeholder="Write about your services here..."></textarea>
+    <button onclick="postAdvert()">Post Advertisement</button>
+
+    <h2>Share This Page</h2>
+    <p>Copy and share this link to invite others:</p>
+    <input type="text" id="shareLink" value="https://tumztradersacademy.com" readonly>
+    <button onclick="copyLink()">Copy Link</button>
+
+    <div class="chatbot">
+      <h2>AI Assistant</h2>
+      <p>Ask me anything about Tumz Traders Academy!</p>
+      <input type="text" id="chatInput" placeholder="Type your question here...">
+      <button onclick="askAI()">Ask</button>
+      <p id="aiResponse"></p>
+    </div>
+
+    <a href="https://wa.me/26662560122" class="whatsapp-link" target="_blank">Contact Us on WhatsApp</a>
+  </div>
+
+  <script>
+    function postAdvert() {
+      const advert = document.getElementById('advertise').value;
+      if (advert.trim() !== "") {
+        alert("Advertisement posted successfully!");
+      } else {
+        alert("Please write something to post.");
+      }
+    }
+
+    function copyLink() {
+      const link = document.getElementById('shareLink');
+      link.select();
+      document.execCommand('copy');
+      alert("Link copied to clipboard!");
+    }
+
+    function askAI() {
+      const question = document.getElementById('chatInput').value;
+      const response = document.getElementById('aiResponse');
+      if (question.trim() === "") {
+        response.textContent = "Please ask a question.";
+        return;
+      }
+      // Simple AI responses (can be replaced with a real AI API)
+      if (question.toLowerCase().includes("course")) {
+        response.textContent = "We offer courses on trading basics, advanced strategies, and risk management.";
+      } else if (question.toLowerCase().includes("contact")) {
+        response.textContent = "You can contact us via WhatsApp at +26662560122.";
+      } else if (question.toLowerCase().includes("fee")) {
+        response.textContent = "Our course fees vary depending on the program. Contact us for details.";
+      } else {
+        response.textContent = "I'm here to help! Please ask me about our courses, fees, or contact information.";
+      }
+    }
+  </script>
+</body>
+</html>
